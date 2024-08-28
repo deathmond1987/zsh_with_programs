@@ -1,5 +1,5 @@
 FROM fedora:latest
-COPY ./zsh_home_install.sh .
+COPY ./zsh_install.sh .
 RUN dnf install sudo 1>/dev/null && \
     chmod 755 ./zsh_home_install.sh && \
     useradd -m -G wheel -s /bin/bash test && \
