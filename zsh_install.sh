@@ -172,6 +172,8 @@ config_proxy_oh_my_zsh () {
         zsh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
         success "Done"
     fi
+    sed -i '1 i\export ZDOTDIR=$HOME/.config/zsh' "$HOME"/.zshrc
+    mkdir -p "$HOME"/.config/zsh
 }
 
 install_plugins () {
