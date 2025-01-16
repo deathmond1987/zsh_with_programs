@@ -172,9 +172,6 @@ config_proxy_oh_my_zsh () {
         zsh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
         success "Done"
     fi
-    ## change default zsh compilation dump to .config/zsh to avoid create compdump files in home dir
-    sed -i '1 i\export ZDOTDIR=$HOME/.config/zsh' "$HOME"/.zshrc
-    mkdir -p "$HOME"/.config/zsh
 }
 
 install_plugins () {
@@ -195,6 +192,10 @@ install_powerlevel () {
     # enable powerlevel10k theme in zsh config
     sed -i 's:ZSH_THEME="robbyrussell":ZSH_THEME="powerlevel10k/powerlevel10k":g' "$HOME"/.zshrc
     success "Done"
+    ## !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    ## change default zsh compilation dump to .config/zsh to avoid create compdump files in home dir
+    sed -i '1 i\export ZDOTDIR=$HOME/.config/zsh' "$HOME"/.zshrc
+    mkdir -p "$HOME"/.config/zsh
 }
 
 fix_zsh_docker () {
